@@ -1,0 +1,6 @@
+<form (ngSubmit)="onSubmit()">
+  <button class="btn btn-primary float-right" name="search" style="float: right">Go</button>
+  <div style="overflow: hidden; padding-right: .5em;">
+    <input id="text" class="mw-100 border rounded form-control" type="text" name="text" title="Type a message..." placeholder="Type a message..." [(ngModel)]="content" required>
+   </div>
+</form>

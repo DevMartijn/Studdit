@@ -1,0 +1,42 @@
+<div class="sticky-component">
+
+	<div class="row">
+		<div class="col-8">
+			<h2>{{title}}</h2>
+			<button class="btn btn-danger" *ngIf="admin" (click)="deleteGroup()">Delete group</button>
+		</div>
+		<div class="col">
+			<button 
+				*ngIf="user"
+				type="button" 
+				class="btn btn-outline-warning float-right"
+				routerLink='edit'
+			>Edit</button>
+		</div>
+	</div>
+
+	<div *ngIf="group">
+
+		<div class="media">
+			<div class="media-body">
+				<h1 class="mt-0">{{group.name}}</h1>
+			</div>
+		</div>
+	</div>
+	<div *ngIf="!group">
+		<p>Error no group selected.</p>
+	</div>
+
+	<ul class="posts">
+			<div *ngFor="let post of posts" [class.selected]="post === selectedPost">
+				<div class='comment'>
+					<b>{{post.user}}</b><br/>
+					{{post.content}}
+				</div>
+			</div>
+	</ul>
+	<div>
+		<app-post-create *ngIf="joined"></app-post-create>
+	</div>
+
+</div>
